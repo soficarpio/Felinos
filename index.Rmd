@@ -60,6 +60,33 @@ dplyr::select(species,
 
 
 # Gráfico 
+```{r grafico, message=FALSE, echo=FALSE}
+geafico_barras <-
+  felinos %>%
+  ggplot(aes(x = species)) +
+  geom_bar() 
+
+ggplotly(grafico_barras)
+```
 
 
 # Mapa 
+```{r mapa, message=FALSE, echo=FALSE}
+# Mapa leaflet básico con capas de altitud, provincias y registros de presencia de felinos
+leaflet() %>%
+  addTiles() %>%
+  addCircleMarkers(
+    data = felinos,
+    stroke = F,
+    radius = 4,
+    fillColor = 'blue',
+    fillOpacity = 1
+  )
+```
+
+
+# profe 
+https://github.com/mfvargas/felinos
+ 
+ 
+
